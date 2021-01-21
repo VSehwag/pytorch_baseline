@@ -1,0 +1,27 @@
+# generic 
+arch: "resnet18" # prefer densenet/WideResNet (ref: bag of tricks adv. training)
+
+# dataset
+dataset: "cifar10"
+data_dir: "/data/data_vvikash/datasets"
+mode: "org"
+num_classes: 10
+size: 32
+normalize: False
+workers: 4
+
+# optimization
+epochs: 50
+batch_size: 128
+lr: 0.2
+weight_decay: 0.0005
+momentum: 0.9
+
+# adversarial examples
+epsilon: 0.5
+num_steps: 1
+step_size: 0.2
+clip_min: 0.
+clip_max: 1.
+distance: "l2"
+beta: 6.0
