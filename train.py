@@ -147,9 +147,9 @@ def main():
         
         if args.local_rank == 0:
             # remember best prec@1 (only based on clean accuracy) and save checkpoint
-            if args.trainer == "baseline":
+            if args.val_method == "baseline":
                 prec = results_val["top1"]
-            elif args.trainer == "adv":
+            elif args.val_method == "adv":
                 prec = results_val["top1_adv"]
             else:
                 raise ValueError()
