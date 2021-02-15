@@ -112,7 +112,7 @@ def main():
         print(f"model loaded from {args.ckpt}")
     optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
     
-    # half-precision support (Actually O2 in amp is mixed-precision)
+    # half-precision support (Actually O1 in amp is mixed-precision)
     if args.fp16:
         #print("using apex synced BN")
         #model = apex.parallel.convert_syncbn_model(model)
