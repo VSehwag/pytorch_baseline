@@ -117,8 +117,8 @@ def main():
         #print("using apex synced BN")
         #model = apex.parallel.convert_syncbn_model(model)
         
-        # O2 opt-level by default (O2 keeps batch_norm in float32)
-        model, optimizer = amp.initialize(model, optimizer, opt_level='O2')
+        # O1 opt-level by default (O1 keeps batch_norm in float32)
+        model, optimizer = amp.initialize(model, optimizer, opt_level='O1')
     
     # parallelization
     if ngpus > 1:
