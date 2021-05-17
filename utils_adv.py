@@ -57,7 +57,7 @@ def pgd_whitebox(
                 torch.FloatTensor(x.shape).uniform_(-1, 1).to(device).detach()
             )
             random_noise.renorm_(p=2, dim=0, maxnorm=epsilon)
-        x_pgd = Variable(x.detach().data + random_noise, requires_grad=True)
+        x_pgd = Variable(x.detach().clone() + random_noise, requires_grad=True)
         for _ in range(num_steps):
             with torch.enable_grad():
                 loss = nn.CrossEntropyLoss()(model(x_pgd), y)
